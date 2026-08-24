@@ -5,6 +5,7 @@ import type { RegionalMoney } from '../../shared/regionalMoney';
 import type { AutoResumeInfo, RecoveryCheckpoint } from '../../shared/agentInputQueue';
 import type { ReviewRunMeta } from '../../shared/reviewRun';
 import type { AgentTaskTerminalStatus } from '@cindy/maker-shared/agent-task';
+import type { MessageSyncToken } from '@cindy/maker-shared/device-link-contract';
 
 export type SessionStatus = 'active' | 'archived' | 'deleted';
 export type WorkspaceKind = 'project' | 'dialogue';
@@ -299,6 +300,8 @@ export interface Session {
   deviceLinkConnectionStatus?: DeviceLinkConnectionStatus;
   createdAt: string; // ISO 8601
   updatedAt: string; // ISO 8601
+  /** Desktop 权威消息窗口版本；旧端 payload 可能缺失。 */
+  messageSyncToken?: MessageSyncToken;
   _count?: { messages: number };
   /**
    * sidebar-card-mode：最近一条 user/assistant 消息的纯文本摘要（≤140 字符，
