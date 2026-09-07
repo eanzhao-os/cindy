@@ -54,6 +54,7 @@ export {
 export type { ResolvedPiModelRoute } from './pi-catalog-marker.js';
 
 export { resolveCodexCompatibilityWireProtocol } from './codexCompatibility.js';
+export { modelProtocolComparison } from './modelProtocol.js';
 
 export { BUNDLED_CATALOG, BUILTIN_PROVIDERS, parseCatalog, presetDisplayName, sanitizePresets, sortPresetsForRegion } from './catalog.js';
 
@@ -61,8 +62,11 @@ export {
   buildUserProvider,
   DEFAULT_CUSTOM_CONTEXT_WINDOW,
   LEGACY_XAI_CUSTOM_PROVIDER_RUNTIME_ID,
+  projectXaiApiImageModels,
   runtimeCustomProviderId,
   storedCustomProviderId,
+  xaiApiOfficialRuntimeAgents,
+  XAI_API_CUSTOM_PROVIDER_ID,
 } from './user-provider.js';
 export {
   appendProviderRequestPath,
@@ -86,6 +90,7 @@ export {
   compareModelRegistryRevisions,
   decideModelRegistrySnapshot,
   findModelRegistryRoute,
+  resolveModelNativeApi,
   resolveModelReferencePrice,
 } from './modelRegistry.js';
 export { modelRegistryCanonicalJson } from './modelRegistryCanonical.js';
@@ -146,8 +151,11 @@ export { isModelVisible, buildProviderSections, visibleModelUnion, resolveModelI
 export type { SectionModel, ProviderSection, ModelIconKind } from './sections.js';
 
 export {
+  modelDefaultEffort,
+  defaultEffortForCapabilities,
   resolveEffort,
   resolveRequestedEffort,
+  composeAtomicModelSelection,
   resolveIntentReselectEffort,
   resolveProviderSwitchEffort,
   clampEffortToSupported,
@@ -157,6 +165,7 @@ export {
   nearestSupportedEffort,
   reconcileInvocationEffort,
 } from './effortResolution.js';
+export { piSupportedEfforts } from './piThinkingLevels.mjs';
 
 // ── 模型调用标准(2026-07 统一层)─────────────────────────────────────────────
 // 清单派生 / 分类徽章 / 调用合成的单点语义,desktop renderer+main 与 mobile 的全部
